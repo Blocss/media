@@ -1,5 +1,6 @@
 == HEAD
 
-== 0.0.1 (Dec 28, 2013)
+== 1.0.0 (Dec 28, 2013)
 
+* Remove unused code
 * Import blocss media
