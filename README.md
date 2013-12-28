@@ -1,4 +1,4 @@
-# Blocss Media – v1.0.0
+# Blocss Media – v1.0.1
 
 A [Blocss](https://github.com/Blocss/blocss/) component to place any image- and text-like content side-by-side.
 
