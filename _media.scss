@@ -1,0 +1,71 @@
+/*! blocss-media v1.0.0 | MIT License | github.com/Blocss */
+
+/*----------------------------------------------------------------------------*\
+    $MEDIA
+    Place any image- and text-like content side-by-side
+    As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Example usage:
+ *
+<div class="media">
+    <div class="media__img  [media__img--rev]">
+        <img src="img.png" alt="">
+    </div>
+    <div class="media__body">
+        Bram Smulders @bramsmulders
+        …
+    </div>
+</div>
+ */
+
+/*  Variables
+\*----------------------------------------------------------------------------*/
+
+// Module can be disabled by switching `$use-media` to `false`
+$use-media:                 true                            !default;
+
+
+
+/*  Core media component
+\*----------------------------------------------------------------------------*/
+
+@if $use-media == true {
+
+.media {
+    @extend .cf;
+    display: block;
+}
+    /**
+     * Image location left
+     */
+    .media__img {
+        @include rem(margin-right, $space);
+        float: left;
+    }
+
+    /**
+     * Reversed image location (right instead of left)
+     */
+    .media__img--rev {
+        @include rem(margin-left, $space);
+        float: right;
+        margin-right: 0;
+    }
+        .media__img,
+        .media__img--rev {
+            img {
+                display:block;
+            }
+        }
+
+
+    /**
+     * Content body
+     */
+    .media__body {
+        @extend %module;
+        overflow: hidden;
+    }
+}
