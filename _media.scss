@@ -68,4 +68,48 @@ $use-media:                 true                            !default;
         @extend %module;
         overflow: hidden;
     }
+
+
+
+/*  Modifiers
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Modifier: widens the gutter between `.media__img` & `.media__body`
+ */
+.media--wide {
+    .media__img {
+        @include rem(margin-right, $space*2);
+    }
+    .media__img--rev {
+        @include rem(margin-left, $space*2);
+    }
+}
+
+
+/**
+ * Modifier: narrows the gutter between `.media__img` & `.media__body`
+ */
+.media--narrow {
+    .media__img {
+        @include rem(margin-right, $space-half);
+    }
+    .media__img--rev {
+        @include rem(margin-left, $space-half);
+    }
+}
+
+
+/**
+ * Modifier: removes gutter between `.media__img` & `.media__body`
+ */
+.media--gutterless {
+    .media__img {
+        margin-right: 0;
+    }
+    .media__img--rev {
+        margin-left: 0;
+    }
+}
+
 }
