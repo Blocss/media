@@ -102,7 +102,10 @@ $use-media:                 true                            !default;
 
 /**
  * Modifier: removes gutter between `.media__img` & `.media__body`
+ * Tags: ^deprecated
+ * `.media--gutterless` modifier is deprecated and will be removed in v1.1.0
  */
+.media--flush,
 .media--gutterless {
     .media__img {
         margin-right: 0;
