@@ -46,22 +46,6 @@ $use-media:                 true                            !default;
     }
 
     /**
-     * Reversed image location (right instead of left)
-     */
-    .media__img--rev {
-        @include rem(margin-left, $space);
-        float: right;
-        margin-right: 0;
-    }
-        .media__img,
-        .media__img--rev {
-            img {
-                display:block;
-            }
-        }
-
-
-    /**
      * Content body
      */
     .media__body {
@@ -73,6 +57,22 @@ $use-media:                 true                            !default;
 
 /*  Modifiers
 \*----------------------------------------------------------------------------*/
+
+/**
+ * Reversed image location (right instead of left)
+ */
+.media__img--rev {
+    @include rem(margin-left, $space);
+    float: right;
+    margin-right: 0;
+}
+    .media__img,
+    .media__img--rev {
+        img {
+            display:block;
+        }
+    }
+
 
 /**
  * Modifier: widens the gutter between `.media__img` & `.media__body`
