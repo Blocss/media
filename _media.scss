@@ -24,7 +24,15 @@
 \*----------------------------------------------------------------------------*/
 
 // Module can be disabled by switching `$use-media` to `false`
-$use-media:                 true                            !default;
+$use-media:                     true                                !default;
+
+/**
+ * Enable/disable modifiers
+ */
+$enable-media-rev:              true                                !default;
+$enable-media-narrow:           true                                !default;
+$enable-media-wide:             true                                !default;
+$enable-media-flush:            true                                !default;
 
 
 
@@ -58,61 +66,77 @@ $use-media:                 true                            !default;
 /*  Modifiers
 \*----------------------------------------------------------------------------*/
 
-/**
- * Reversed image location (right instead of left)
- */
-.media__img--rev {
-    @include rem(margin-left, $space);
-    float: right;
-    margin-right: 0;
-}
-    .media__img,
+@if $enable-media-rev == true {
+
+    /**
+     * Reversed image location (right instead of left)
+     */
     .media__img--rev {
-        img {
-            display:block;
+        @include rem(margin-left, $space);
+        float: right;
+        margin-right: 0;
+    }
+        .media__img,
+        .media__img--rev {
+            img {
+                display:block;
+            }
+        }
+
+}
+
+
+@if $enable-media-wide == true {
+
+    /**
+     * Modifier: widens the gutter between `.media__img` & `.media__body`
+     */
+    .media--wide {
+        .media__img {
+            @include rem(margin-right, $space*2);
+        }
+        .media__img--rev {
+            @include rem(margin-left, $space*2);
         }
     }
 
-
-/**
- * Modifier: widens the gutter between `.media__img` & `.media__body`
- */
-.media--wide {
-    .media__img {
-        @include rem(margin-right, $space*2);
-    }
-    .media__img--rev {
-        @include rem(margin-left, $space*2);
-    }
 }
 
 
-/**
- * Modifier: narrows the gutter between `.media__img` & `.media__body`
- */
-.media--narrow {
-    .media__img {
-        @include rem(margin-right, $space-half);
+@if $enable-media-narrow == true {
+
+    /**
+     * Modifier: narrows the gutter between `.media__img` & `.media__body`
+     */
+    .media--narrow {
+        .media__img {
+            @include rem(margin-right, $space-half);
+        }
+        .media__img--rev {
+            @include rem(margin-left, $space-half);
+        }
     }
-    .media__img--rev {
-        @include rem(margin-left, $space-half);
-    }
+
 }
 
 
-/**
- * Modifier: removes gutter between `.media__img` & `.media__body`
- * Tags: ^deprecated
- * `.media--gutterless` modifier is deprecated and will be removed in v1.1.0
- */
-.media--flush,
-.media--gutterless {
-    .media__img {
-        margin-right: 0;
+@if $enable-media-flush == true {
+
+    /**
+     * Modifier: removes gutter between `.media__img` & `.media__body`
+     * Tags: ^deprecated
+     * `.media--gutterless` modifier is deprecated and will be removed in v1.1.0
+     */
+    .media--flush,
+    .media--gutterless {
+        .media__img {
+            margin-right: 0;
+        }
+        .media__img--rev {
+            margin-left: 0;
+        }
     }
-    .media__img--rev {
-        margin-left: 0;
-    }
+
 }
 
 }
