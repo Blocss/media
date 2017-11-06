@@ -1,4 +1,6 @@
-# Blocss Media – v1.0.3
+# Blocss Media – v1.0.3 - Deprecated
+
+**This module has been moved to: ([https://github.com/Blocss/blocss](https://github.com/Blocss/blocss))**
 
 A [Blocss](https://github.com/Blocss/blocss/) component to place any image- and text-like content side-by-side.
 
